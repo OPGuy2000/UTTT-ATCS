@@ -12,8 +12,8 @@ public class MiniGame {
     }
 
     public boolean checkWin(int player) {
-        boolean rowCheck = board[rCol][1] != 0 && board[rCol][0] == board[rCol][1] && board[rCol][1] == board[rCol][2];
-        boolean colCheck = board[1][rRow] != 0 && board[0][rRow] == board[1][rRow] && board[1][rRow] == board[2][rRow];
+        boolean rowCheck = board[rRow][1] != 0 && board[rRow][0] == board[rRow][1] && board[rRow][1] == board[rRow][2];
+        boolean colCheck = board[1][rCol] != 0 && board[0][rCol] == board[1][rCol] && board[1][rCol] == board[2][rCol];
         
         boolean diagonalCheck1 = false;
         boolean diagonalCheck2 = false;
@@ -23,7 +23,6 @@ public class MiniGame {
         }
         
         boolean won = rowCheck || colCheck || diagonalCheck1 || diagonalCheck2;
-        System.out.println(rowCheck);
         if (won) {this.setWinner(player);}
         return won;
     }
@@ -44,6 +43,8 @@ public class MiniGame {
         rRow = row;
         rCol = col;
         board[row][col] = player;
+
+        this.checkWin(player);
     }
 
     public String[] getStringArray() {

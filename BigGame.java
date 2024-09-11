@@ -24,7 +24,6 @@ public class BigGame {
         
         
         board[(int) bigRow - 97][bigCol-1].playMove((int) smallRow - 97, smallCol-1, player);
-        board[(int) bigRow - 97][bigCol-1].checkWin(player);
     } 
 
     @Override
